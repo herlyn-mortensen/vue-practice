@@ -1,6 +1,8 @@
 <template>
     <div>
-        <h1>{{result}}</h1>
+        <h1 id="color" :style="{color:textColor}">
+            {{result}}
+        </h1>
         <button @click="addNumber">+</button>
         <button @click="subtractNumber">-</button>
     </div>
@@ -15,16 +17,27 @@ export default {
     data: function () {
         return {
         result: resultNumber,
+        'textColor': 'green',
         };
     },
     methods: {
         addNumber: function(){
             this.result = resultNumber + 1;
             resultNumber = resultNumber + 1
+            if (resultNumber%2 == 0) {
+                this.textColor = 'green'
+            } else {
+                this.textColor = 'red'
+            }
         },
         subtractNumber: function(){
             this.result = resultNumber - 1;
             resultNumber = resultNumber - 1
+            if (resultNumber%2 == 0) {
+                this.textColor = 'green'
+            } else {
+                this.textColor = 'red'
+            }
         }
     },
 
